@@ -10,6 +10,9 @@ namespace AutoWall
     {
         static void Main(string[] args)
         {
+            int ResX = 1920;
+            int ResY = 1080;
+
             int DayOfYear = 0;
             while (true)
             {
@@ -18,7 +21,7 @@ namespace AutoWall
                     DayOfYear = DateTime.Now.DayOfYear -1;
                     try
                     {
-                        new WebClient().DownloadFile("http://map2.vis.earthdata.nasa.gov/imagegen/index.php?TIME="+DateTime.Now.Year+""+DayOfYear+"&extent=-5.8232421875,49.599609375,2.6142578125,54.345703125&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,sedac_bound&format=image/jpeg&width=1920&height=1080", "./Today_" + DayOfYear + ".jpg");
+                        new WebClient().DownloadFile("http://map2.vis.earthdata.nasa.gov/imagegen/index.php?TIME="+DateTime.Now.Year+""+DayOfYear+"&extent=-5.8232421875,49.599609375,2.6142578125,54.345703125&epsg=4326&layers=MODIS_Terra_CorrectedReflectance_TrueColor,sedac_bound&format=image/jpeg&width="+ResX+"&height=+ResY, "./Today_" + DayOfYear + ".jpg");
                         Console.WriteLine("Got the file!");
                         Process process = new Process();
                         // Configure the process using the StartInfo properties.
